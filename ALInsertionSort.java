@@ -5,7 +5,7 @@ public class ALInsertionSort
 
     public static void main(String[] args)
     {
-    	Integer myNumbers[] = {0, 15, 6, 8, 2, 37};
+    	Integer myNums[] = {0, 15, 6, 8, 2, 37, 102, -21, 30, 7, 12};
     	ArrayList<Integer> sorted = new ArrayList<Integer>();
     	boolean inserted=false;
 
@@ -22,6 +22,27 @@ public class ALInsertionSort
 
 
 		//End Loop for unsorted list
+
+		for(int i=0; i<myNums.length; i++)
+		{
+			for(int j=0; j<sorted.size(); j++)
+			{
+				if(myNums[i]<sorted.get(j))
+					{
+						sorted.add(j,myNums[i]);
+						inserted=true;
+						j=sorted.size();
+					}
+			}		
+
+			if(!inserted)
+				sorted.add(sorted.size(),myNums[i]);
+
+			inserted=false;
+		}
+
+		//for(int i=0; i<myNums.length; i++)
+		//	myNums[i]=sorted.get(i);
 
 		System.out.println(sorted);
 
